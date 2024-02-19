@@ -257,7 +257,7 @@
                             <layers>
                                 <layer>bean-validation</layer>
                                 <layer>cdi</layer>
-                                <layer>h2-default-datasource</layer>
+                                <layer>postgresql-datasource</layer>
                                 <layer>jaxrs-server</layer>
                                 <layer>jpa</layer>
                                 <layer>transactions</layer>
