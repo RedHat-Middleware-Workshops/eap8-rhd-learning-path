@@ -22,10 +22,10 @@
                                  https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
     version="3.0">
     <persistence-unit name="primary">
-        <jta-data-source>java:comp/DefaultDataSource</jta-data-source>
+        <jta-data-source>java:jboss/datasources/Contacts</jta-data-source>
         <properties>
-            <!-- Drop and create the tables for the entities. This can be removed if the database contains the tables. -->
-            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="hibernate.show_sql" value="false" />
         </properties>
     </persistence-unit>
 </persistence>
