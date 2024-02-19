@@ -273,7 +273,6 @@
     </repositories>
 
     <profiles>
-        </profile>
 
         <profile>
             <id>openshift</id>
