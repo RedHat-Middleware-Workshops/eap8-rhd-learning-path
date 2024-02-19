@@ -188,7 +188,7 @@
         </dependency>
     </dependencies>
 
-    <build>s
+    <build>
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
@@ -247,7 +247,6 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-        </plugins>
         </plugins>
 
     </build>
