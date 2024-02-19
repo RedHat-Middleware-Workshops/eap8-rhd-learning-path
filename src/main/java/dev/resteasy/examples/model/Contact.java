@@ -48,7 +48,6 @@ import dev.resteasy.examples.resources.ContactListener;
 public class Contact {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "first_name")
