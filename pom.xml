@@ -188,8 +188,7 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>${project.artifactId}</finalName>
+    <build>s
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
@@ -249,6 +248,8 @@
                 </configuration>
             </plugin>
         </plugins>
+        </plugins>
+
     </build>
 
     <repositories>
@@ -273,16 +274,6 @@
     </repositories>
 
     <profiles>
-        <profile>
-            <id>debug</id>
-            <activation>
-                <property>
-                    <name>debug</name>
-                </property>
-            </activation>
-            <properties>
-                <debugJvmArgs>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:${debug.port}</debugJvmArgs>
-            </properties>
         </profile>
 
         <profile>
