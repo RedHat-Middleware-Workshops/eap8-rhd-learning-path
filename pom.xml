@@ -38,12 +38,6 @@
         </license>
     </licenses>
 
-    <scm>
-        <connection>scm:git:git://github.com/resteasy/resteasy-examples.git</connection>
-        <developerConnection>scm:git:git@github.com:resteasy/resteasy-examples.git</developerConnection>
-        <url>https://github.com/resteasy/resteasy-examples/tree/main/</url>
-    </scm>
-
     <properties>
         <jdk.min.version>11</jdk.min.version>
         <maven.compiler.target>11</maven.compiler.target>
@@ -207,11 +201,6 @@
             <artifactId>jboss-logging</artifactId>
             <version>3.5.3.Final</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>4.1.2</version>
         </dependency>
 
 
