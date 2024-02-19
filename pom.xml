@@ -248,40 +248,6 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>${version.wildfly-maven-plugin}</version>
-                <configuration>
-                    <jboss-home>${jboss.home}</jboss-home>
-                    <provisioning-dir>${jboss.home}</provisioning-dir>
-                    <feature-packs>
-                        <feature-pack>
-                            <location>wildfly@maven(org.jboss.universe:community-universe)#${version.org.wildfly}</location>
-                        </feature-pack>
-                    </feature-packs>
-                    <layers>
-                        <layer>bean-validation</layer>
-                        <layer>cdi</layer>
-                        <layer>h2-default-datasource</layer>
-                        <layer>jaxrs-server</layer>
-                        <layer>jpa</layer>
-                        <layer>transactions</layer>
-                    </layers>
-                    <galleon-options>
-                        <jboss-fork-embedded>true</jboss-fork-embedded>
-                    </galleon-options>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>provision-test-server</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>provision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
@@ -318,6 +284,59 @@
                 <debugJvmArgs>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:${debug.port}</debugJvmArgs>
             </properties>
         </profile>
+
+    <profiles>
+        <profile>
+            <id>openshift</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <version>1.0.0.Final-redhat-00014</version>
+                        <configuration>
+                            <channels>
+                                <channel>
+                                    <manifest>
+                                      <groupId>org.jboss.eap.channels</groupId>
+                                      <artifactId>eap-8.0</artifactId>
+                                    </manifest>
+                                </channel>
+                            </channels>
+                            <feature-packs>
+                                <feature-pack>
+                                    <location>org.jboss.eap:wildfly-ee-galleon-pack</location>
+                                </feature-pack>
+                                <feature-pack>
+                                    <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
+                                </feature-pack>
+                                <feature-pack>
+                                    <location>org.jboss.eap:eap-datasources-galleon-pack</location>
+                                </feature-pack>
+                            </feature-packs>
+                            <layers>
+                                <layer>bean-validation</layer>
+                                <layer>cdi</layer>
+                                <layer>h2-default-datasource</layer>
+                                <layer>jaxrs-server</layer>
+                                <layer>jpa</layer>
+                                <layer>transactions</layer>
+                            </layers>
+                            <filename>ROOT.war</filename>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>       
+    </profiles>
+
     </profiles>
 
 </project>
