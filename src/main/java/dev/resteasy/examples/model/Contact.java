@@ -28,6 +28,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
@@ -48,7 +49,9 @@ import dev.resteasy.examples.resources.ContactListener;
 public class Contact {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contact_generator")
+    @SequenceGenerator(name = "contact_generator", sequenceName = "contact_seq", allocationSize = 1)
     private Long id;
 
     @Column(name = "first_name")
