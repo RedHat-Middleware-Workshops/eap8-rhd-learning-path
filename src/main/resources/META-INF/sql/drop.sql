@@ -1,3 +1,3 @@
 
-drop table contact;
-drop sequence contact_seq;
+drop table IF EXISTS  contact;
+drop sequence IF EXISTS  contact_seq;
