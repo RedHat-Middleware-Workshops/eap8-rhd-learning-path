@@ -249,12 +249,8 @@
                                 </feature-pack>
                             </feature-packs>
                             <layers>
-                                <layer>bean-validation</layer>
-                                <layer>cdi</layer>
                                 <layer>postgresql-datasource</layer>
                                 <layer>jaxrs-server</layer>
-                                <layer>jpa</layer>
-                                <layer>transactions</layer>
                             </layers>
                             <filename>ROOT.war</filename>
                         </configuration>
