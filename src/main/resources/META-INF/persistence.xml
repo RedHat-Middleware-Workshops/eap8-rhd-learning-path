@@ -37,6 +37,7 @@
   <property name="javax.persistence.schema-generation.drop-script-source"
             value="META-INF/sql/drop.sql" />
             <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
         </properties>
     </persistence-unit>
 </persistence>
